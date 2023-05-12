@@ -36,5 +36,26 @@ public class RoomRepositoryTest {
         assertThat(found.get().getName()).isEqualTo(room.getName());
     }
 
+    @Test
+    public void testSaveRoom() {
+        // given
+        Room room = new Room();
+        room.setName("Sala1");
+
+        // when
+        entityManager.persist(room);
+        entityManager.flush();
+
+        // then
+        Room found = roomRepository.findById(room.getId()).orElse(null);
+        assertThat(found.getName()).isEqualTo(room.getName());
+    }
+
+
+
+
+
+
+
 
 }
