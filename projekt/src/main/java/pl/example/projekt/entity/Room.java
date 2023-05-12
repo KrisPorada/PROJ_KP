@@ -1,8 +1,5 @@
 package pl.example.projekt.entity;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -11,6 +8,8 @@ import java.util.List;
 
 @Entity
 @Data
+@Setter
+@Getter
 @NoArgsConstructor
 //@RequiredArgsConstructor
 @Table(name = "rooms")
@@ -34,5 +33,7 @@ public class Room {
     public String getNumber() {
         return null;
     }
+
+
 }
 
