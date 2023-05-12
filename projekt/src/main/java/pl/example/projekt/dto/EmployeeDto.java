@@ -12,8 +12,7 @@ import java.util.Set;
     public class EmployeeDto {
         private Long id;
         private String name;
-        private String email;
-        private DepartmentDto department;
-        private Set<MeetingDto> meetings;
+//        private DepartmentDto department;
+//        private Set<MeetingDto> meetings;
     }
 

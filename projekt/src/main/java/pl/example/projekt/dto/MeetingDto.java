@@ -15,5 +15,6 @@ public class MeetingDto {
     private LocalDateTime startTime;
     private LocalDateTime endTime;
     private RoomDto room;
-    private Set<EmployeeDto> employees;
+    private LocalDateTime date;
+//    private Set<EmployeeDto> employees;
 }
