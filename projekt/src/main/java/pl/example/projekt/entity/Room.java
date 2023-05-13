@@ -27,13 +27,6 @@ public class Room {
     @OneToMany(mappedBy = "room")
     private List<Meeting> meetings;
 
-    public void setNumber(String number) {
-    }
-
-    public String getNumber() {
-        return null;
-    }
-
 
 }
 
