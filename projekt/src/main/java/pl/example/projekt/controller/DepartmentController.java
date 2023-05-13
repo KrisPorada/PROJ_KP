@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import pl.example.projekt.entity.Department;
 import pl.example.projekt.service.DepartmentService;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -36,7 +37,7 @@ public class DepartmentController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Department> updateDepartment(@PathVariable Long id, @RequestBody Department department) {
+    public ResponseEntity<Department> updateDepartment(@Valid @PathVariable Long id, @RequestBody Department department) {
         department.setId(id);
         return new ResponseEntity<>(departmentService.updateDepartment(department), HttpStatus.OK);
     }

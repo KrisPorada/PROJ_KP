@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import pl.example.projekt.entity.Meeting;
 import pl.example.projekt.service.MeetingService;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -31,12 +32,12 @@ public class MeetingController {
     }
 
     @PostMapping
-    public ResponseEntity<Meeting> createMeeting(@RequestBody Meeting meeting) {
+    public ResponseEntity<Meeting> createMeeting(@Valid @RequestBody Meeting meeting) {
         return new ResponseEntity<>(meetingService.saveMeeting(meeting), HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Meeting> updateMeeting(@PathVariable Long id, @RequestBody Meeting meeting) {
+    public ResponseEntity<Meeting> updateMeeting(@Valid @PathVariable Long id, @RequestBody Meeting meeting) {
         meeting.setId(id);
         return new ResponseEntity<>(meetingService.updateMeeting(meeting), HttpStatus.OK);
     }

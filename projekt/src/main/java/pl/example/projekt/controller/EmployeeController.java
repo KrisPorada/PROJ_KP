@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import pl.example.projekt.entity.Employee;
 import pl.example.projekt.service.EmployeeService;
 
+import javax.validation.Valid;
 import java.util.Date;
 import java.util.List;
 
@@ -33,12 +34,12 @@ public class EmployeeController {
     }
 
     @PostMapping
-    public ResponseEntity<Employee> createEmployee(@RequestBody Employee employee) {
+    public ResponseEntity<Employee> createEmployee(@Valid @RequestBody Employee employee) {
         return new ResponseEntity<>(employeeService.saveEmployee(employee), HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Employee> updateEmployee(@PathVariable Long id, @RequestBody Employee employee) {
+    public ResponseEntity<Employee> updateEmployee(@Valid @PathVariable Long id, @RequestBody Employee employee) {
         employee.setId(id);
         return new ResponseEntity<>(employeeService.updateEmployee(employee), HttpStatus.OK);
     }

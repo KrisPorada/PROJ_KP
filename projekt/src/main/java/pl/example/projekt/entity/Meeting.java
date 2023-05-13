@@ -6,6 +6,7 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.Future;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -20,17 +21,22 @@ public class Meeting {
     private Long id;
 
     @NonNull
+    @Future(message = "Start time should be in the future")
     private LocalDateTime startTime;
 
     @NonNull
+    @Future(message = "End time should be in the future")
     private LocalDateTime endTime;
+
+
+    @Column(nullable = false)
+    private LocalDateTime date; // Dodane pole date
 
     @ManyToOne
     @JoinColumn(name = "room_id")
     private Room room;
 
-    @Column(nullable = false)
-    private LocalDateTime date; // Dodane pole date
+
 
     @ManyToMany
     @JoinTable(

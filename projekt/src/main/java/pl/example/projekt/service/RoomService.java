@@ -40,7 +40,7 @@ public class RoomService {
         roomRepository.deleteById(id);
     }
 
-    public Room updateRoom(Room room) {
+    public Room updateRoom(Long id, Room room) {
         return roomRepository.save(room);
     }
 
@@ -63,4 +63,6 @@ public class RoomService {
     }
 
 
+    public Room createRoom(Room room) {return null;
+    }
 }

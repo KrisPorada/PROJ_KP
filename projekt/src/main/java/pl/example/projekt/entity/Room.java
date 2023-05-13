@@ -24,8 +24,8 @@ public class Room {
             message = "Room name must have at least 3 characters and can contain only letters, digits and spaces")
     private String name;
 
-    @OneToMany(mappedBy = "room")
-    private List<Meeting> meetings;
+//    @OneToMany(mappedBy = "room")
+//    private List<Meeting> meetings;
 
 
 }
